@@ -879,8 +879,9 @@ L.CSSFilter = L.ImageFilter.extend({
         prefixes: [ "-webkit-", "-moz-", "-ms-", "-o-", "" ]
     },
     render: function(image) {
+        var filterText = this.options.filters.join(" ") || "none";
         for (var i = 0; i < L.CSSFilter.prefixes.length; ++i) {
-            image.style.cssText += " " + L.CSSFilter.prefixes[i] + "filter: " + this.options.filters.join(" ") + ";";
+            image.style.cssText += " " + L.CSSFilter.prefixes[i] + "filter: " + filterText + ";";
         }
     }
 });
